@@ -50,7 +50,7 @@ i_lo = math.floor((x0 - FIN_T / 2 - FIN_XOFF) / FIN_PITCH)
 i_hi = math.ceil((x1 + FIN_T / 2 - FIN_XOFF) / FIN_PITCH)
 for i in range(i_lo, i_hi + 1):
     fx = FIN_XOFF + i * FIN_PITCH
-    f = rbox(fx, (y0 + y1) / 2, FIN_T, y1 - y0, PLATE_T, PLATE_T + FIN_H, FIN_T / 2)
+    f = box(fx, (y0 + y1) / 2, FIN_T, y1 - y0, PLATE_T, PLATE_T + FIN_H)  # 直角鳍片端部, 无R0.5凹角, 避免小刀清角工序
     fins = f if fins is None else fins.union(f)
 fins = fins.intersect(region)
 
