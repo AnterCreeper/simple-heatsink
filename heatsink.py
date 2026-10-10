@@ -4,9 +4,9 @@ import cadquery as cq
 # ===== 可调参数 =====
 PLATE_SX = 50.0          # 板 X 尺寸 mm
 PLATE_SY = 58.0          # 板 Y 尺寸 mm (气流方向)
-TOTAL_H = 10.0           # 总厚度 mm (含鳍片)
+TOTAL_H = 6.8            # 总厚度 mm (含鳍片)
 PLATE_T = 1.8            # 底板厚度 mm
-FIN_H = TOTAL_H - PLATE_T  # 鳍片高度 8.2mm
+FIN_H = TOTAL_H - PLATE_T  # 鳍片高度 5.0mm
 
 HOLE_D = 3.0             # 安装孔直径 mm
 HOLE_PX = 30.0           # 孔距 X mm
@@ -14,11 +14,11 @@ HOLE_PY = 49.0           # 孔距 Y mm (气流方向)
 HOLE_CLR = 5.0           # 孔周围净空(孔中心到鳍片, 正方形半边长) mm
 
 FIN_MARGIN = 1.5         # 鳍片区离板边缘距离 mm (1~2)
-FIN_PITCH = 3.3          # 鳍片节距 mm (间隙2.3, 深8.2 -> 宽高比1:3.6, 满足深槽规则③ >=1:5)
-FIN_T = 1.0              # 鳍片厚度 mm (间隙=2.3mm)
+FIN_PITCH = 2.5          # 鳍片节距 mm (间隙1.5, 深5.0 -> 宽高比1:3.3, 满足深槽规则① >=1:5)
+FIN_T = 1.0              # 鳍片厚度 mm (间隙=1.5mm)
 FIN_SEG = 15.0           # 断开分段长度 mm
-FIN_BREAK_W = 2.3        # 断开切口宽 mm (同间隙宽, 满足深槽规则)
-FIN_XOFF = 1.75          # 鳍片中心网格X偏移 mm (使孔净空边10/20恰好落在间隙中央)
+FIN_BREAK_W = 1.5        # 断开切口宽 mm (同间隙宽, 满足深槽规则)
+FIN_XOFF = 1.25          # 鳍片中心网格X偏移 mm (使孔净空边10/20恰好落在间隙中央)
 
 def box(cx, cy, sx, sy, z0, z1):
     return cq.Workplane("XY").box(sx, sy, z1 - z0, centered=(True, True, False)).translate((cx, cy, z0))
